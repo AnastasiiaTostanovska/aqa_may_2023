@@ -1,22 +1,17 @@
-package com.hillel.homework15.credentials;
+package com.hillel.homework15.сredentials;
 
 import com.hillel.homework15.exceptions.WrongLoginException;
 import com.hillel.homework15.exceptions.WrongPasswordException;
 
 public class СredentialsUtils {
 
-    public static boolean validateUserСredentials(String login, String password, String confirmPassword) {
+    public static boolean validateUserCredentials(String login, String password, String confirmPassword) {
         boolean isValid = true;
         try {
             validateLogin(login);
-        } catch (WrongLoginException e) {
-            System.err.println("WrongLoginException: " + e.getMessage());
-            isValid = false;
-        }
-        try {
             validatePassword(password, confirmPassword);
-        } catch (WrongPasswordException e) {
-            System.err.println("WrongPasswordException: " + e.getMessage());
+        } catch (WrongLoginException | WrongPasswordException e) {
+            System.err.println(e.getClass().getSimpleName() + ": " + e.getMessage());
             isValid = false;
         }
         return isValid;
