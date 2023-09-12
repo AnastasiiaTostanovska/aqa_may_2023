@@ -1,7 +1,7 @@
 package com.hillel.homework15.demo;
 
 import java.util.Scanner;
-import static com.hillel.homework15.credentials.СredentialsUtils.*;
+import static com.hillel.homework15.сredentials.СredentialsUtils.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,7 +15,7 @@ public class Main {
         System.out.print("Confirm password: ");
         String confirmPassword = scanner.nextLine();
 
-        boolean isValid = validateUserСredentials(login, password, confirmPassword);
+        boolean isValid = validateUserCredentials(login, password, confirmPassword);
         if (isValid) {
             System.out.println("User registration successful!");
            } else {
