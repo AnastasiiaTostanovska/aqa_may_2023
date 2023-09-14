@@ -17,9 +17,9 @@ public class Demo {
 
         System.out.println(miniMarket.printProductNames());
         System.out.println(miniMarket.printSortedProductNames());
+        System.out.println(miniMarket.printSortedProductByPrice());
         System.out.println(miniMarket.printProductPriceOver100());
         System.out.println(miniMarket.printProductPriceLessThan50());
         System.out.println(miniMarket.printProductPriceAsString());
-        System.out.println(miniMarket.printSortedProductByPrice());
     }
 }
