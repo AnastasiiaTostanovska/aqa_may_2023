@@ -1,66 +1,54 @@
 package com.hillel.homework16.market;
 
-import com.hillel.homework16.comporators.ProductComparatorByPrice;
-
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProductMarket {
     private List<Product> productList;
+
     public ProductMarket(List<Product> productList) {
         this.productList = productList;
     }
 
-    public ArrayList<String> printProductNames() {
-        ArrayList<String> allProductNames = new ArrayList<>();
-        for (Product product : productList) {
-            allProductNames.add(product.getName());
-        }
-        return allProductNames;
+    public List<String> printProductNames() {
+        return productList.stream()
+                .map(Product::getName)
+                .collect(Collectors.toList());
     }
 
-    public ArrayList<String> printSortedProductNames() {
-        ArrayList<String> sortedProductNames = new ArrayList<>();
-        for (Product product : productList) {
-            sortedProductNames.add(product.getName());
-        }
-        Collections.sort(sortedProductNames);
-        return sortedProductNames;
+    public List<String> printSortedProductNames() {
+        return productList.stream()
+                .map(Product::getName)
+                .sorted()
+                .collect(Collectors.toList());
     }
 
-    public ArrayList<Integer> printProductPriceOver100() {
-        ArrayList<Integer> productPriceOver100 = new ArrayList<>();
-        for (Product product : productList) {
-            if (product.getPrice() > 100) {
-                productPriceOver100.add(product.getPrice());
-            }
-        }
-        return productPriceOver100;
+    public List<Integer> printSortedProductByPrice() {
+        return productList.stream()
+                .map(Product::getPrice)
+                .sorted()
+                .collect(Collectors.toList());
     }
 
-    public ArrayList<Integer> printProductPriceLessThan50() {
-        ArrayList<Integer> productPriceLessThan50 = new ArrayList<>();
-        for (Product product : productList) {
-            if (product.getPrice() < 50) {
-                productPriceLessThan50.add(product.getPrice());
-            }
-        }
-        return productPriceLessThan50;
+    public List<Integer> printProductPriceOver100() {
+        return productList.stream()
+                .map(Product::getPrice)
+                .filter(product1 -> product1 > 100)
+                .collect(Collectors.toList());
     }
 
-    public ArrayList<String> printProductPriceAsString() {
-        ArrayList<String> productPriceAsString = new ArrayList<>();
-        for (Product product : productList) {
-            productPriceAsString.add(String.valueOf(product.getPrice()));
-        }
-        return productPriceAsString;
+    public List<Integer> printProductPriceLessThan50() {
+        return productList.stream()
+                .map(Product::getPrice)
+                .filter(product1 -> product1 < 50)
+                .collect(Collectors.toList());
     }
 
-    public ArrayList<Product> printSortedProductByPrice() {
-        ArrayList<Product> sortedProductByPrice = new ArrayList<>(productList);
-        Collections.sort(sortedProductByPrice, new ProductComparatorByPrice());
-        return sortedProductByPrice;
+    public List<String> printProductPriceAsString() {
+        return productList.stream()
+                .map(Product::getPrice)
+                .map(String::valueOf)
+                .collect(Collectors.toList());
     }
 
     public List<Product> getProductList() {
