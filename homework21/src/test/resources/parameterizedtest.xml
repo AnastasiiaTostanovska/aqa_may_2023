@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="parameterized">
+    <test name="parameterized test">
+
+        <classes>
+            <class name="com.hillel.homework21.calculator.ParameterizedCalculatorTest">
+            </class>
+        </classes>
+    </test>
+</suite>
